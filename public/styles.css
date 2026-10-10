@@ -1,0 +1,166 @@
+:root {
+  --bg: #f7f6f3;
+  --card: #fff;
+  --ink: #1c1b19;
+  --muted: #6f6a64;
+  --line: #e3dfd8;
+  --error: #9a3412;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.skip {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  padding: 8px 12px;
+  background: var(--ink);
+  color: #fff;
+  transform: translateY(-160%);
+}
+
+.skip:focus { transform: none; }
+
+main {
+  width: min(880px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0 64px;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: 1.35rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  padding: 14px 16px 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.panel label,
+.panel h2 {
+  display: flex;
+  align-items: center;
+  min-height: 28px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.panel-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 28px;
+}
+
+textarea {
+  flex: 1;
+  width: 100%;
+  margin-top: 10px;
+  padding: 0;
+  border: 0;
+  resize: vertical;
+  min-height: 180px;
+  background: transparent;
+  color: var(--ink);
+  font: 400 1.05rem/1.55 inherit;
+}
+
+textarea:focus { outline: none; }
+
+textarea::placeholder { color: #b0aaa3; }
+
+.output {
+  flex: 1;
+  margin: 10px 0 0;
+  font-size: 1.15rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.output:empty::before {
+  content: "Hindi will show up here";
+  color: #b0aaa3;
+}
+
+.output.is-loading { color: var(--muted); }
+.output.is-error { color: var(--error); }
+
+.output.is-loading:empty::before,
+.output.is-error:empty::before,
+.output:not(:empty)::before { content: none; }
+
+#copy {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--ink);
+  font: 600 0.9rem/1 inherit;
+  cursor: pointer;
+}
+
+#copy:disabled {
+  color: #c2bbb4;
+  cursor: not-allowed;
+}
+
+#copy:focus-visible,
+#go:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+#go {
+  appearance: none;
+  margin-top: 14px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+  font: 600 0.95rem/1 inherit;
+  cursor: pointer;
+}
+
+#go:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+  main { padding-top: 28px; }
+  .panels { grid-template-columns: 1fr; }
+  .panel { min-height: 200px; }
+}

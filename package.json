@@ -1,0 +1,14 @@
+{
+  "name": "romi",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Translate English into Hindi written in English letters.",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

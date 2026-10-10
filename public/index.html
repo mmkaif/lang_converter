@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f3">
+  <title>English to Hindi</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip" href="#source">Skip to the sentence</a>
+  <main>
+    <h1>English to Hindi</h1>
+    <form id="form">
+      <div class="panels">
+        <div class="panel">
+          <label for="source">English</label>
+          <textarea id="source" name="text" rows="8" maxlength="2000" placeholder="Type in English" spellcheck="true"></textarea>
+        </div>
+        <section class="panel" aria-labelledby="out-label">
+          <div class="panel-top">
+            <h2 id="out-label">Hindi</h2>
+            <button type="button" id="copy" disabled>Copy</button>
+          </div>
+          <p id="output" class="output" lang="hi-Latn"></p>
+        </section>
+      </div>
+      <button type="submit" id="go" disabled>Translate</button>
+    </form>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
